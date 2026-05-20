@@ -287,8 +287,8 @@ export default function LandingPage() {
       </section>
 
       {/* Benefits */}
-      <section className="bg-slate-900 border-y border-slate-800 py-20 px-6">
-        <div className="max-w-4xl mx-auto">
+      <section className="py-20 px-6 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/crane_lifting_head.jpg')" }}>
+        <div className="max-w-4xl mx-auto bg-slate-950/80 rounded-xl py-12 px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">What You Get</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
@@ -312,8 +312,8 @@ export default function LandingPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 px-6 text-center">
-        <div className="max-w-2xl mx-auto bg-slate-900/80 border border-slate-800 rounded-xl py-12 px-6">
+      <section className="py-20 px-6 text-center bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/crane_lifting_head.jpg')" }}>
+        <div className="max-w-2xl mx-auto bg-slate-950/85 rounded-xl py-12 px-6">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Stand UP?</h2>
           <p className="text-slate-400 mb-8">
             Join the movement. First 1,000 members get founding status -
