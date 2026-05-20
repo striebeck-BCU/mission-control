@@ -39,7 +39,7 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-white">
-      {/* Nav */}
+      {/* Nav + Under Construction Banner */}
       <nav className="px-6 py-5 border-b border-slate-800">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
           <div className="text-xl font-bold tracking-tight">
@@ -48,6 +48,11 @@ export default function LandingPage() {
           <div className="text-sm text-slate-400">BCU</div>
         </div>
       </nav>
+
+      {/* Under Construction Banner */}
+      <div className="bg-blue-900/40 border-b border-blue-700 px-6 py-2 text-center text-sm text-blue-200">
+        🚧 <strong>Still under construction</strong> — More coming soon. Sign up to be notified when we launch.
+      </div>
 
       {/* Hero */}
       <section
