@@ -42,7 +42,7 @@ export default function LandingPage() {
       {/* Nav + Under Construction Banner */}
       <nav className="px-6 py-5 border-b border-slate-800">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
-          <div className="text-xl font-bold tracking-tight">
+          <div className="text-2xl md:text-3xl font-bold tracking-tight">
             <span className="text-blue-500">Blue Collar</span> Up
           </div>
           <div className="text-sm text-slate-400">BCU</div>
@@ -50,8 +50,10 @@ export default function LandingPage() {
       </nav>
 
       {/* Under Construction Banner */}
-      <div className="bg-blue-900/40 border-b border-blue-700 px-6 py-2 text-center text-sm text-blue-200">
-        🚧 <strong>Still under construction</strong> — More coming soon. Sign up to be notified when we launch.
+      <div className="bg-blue-800/60 border-b-2 border-blue-500 px-6 py-3 text-center">
+        <span className="text-base md:text-lg font-semibold text-white">
+          🚧 Still under construction — More coming soon. Sign up to be notified when we launch.
+        </span>
       </div>
 
       {/* Hero */}
@@ -122,8 +124,11 @@ export default function LandingPage() {
       </section>
 
       {/* Problem */}
-      <section className="py-20 px-6">
-        <div className="max-w-4xl mx-auto">
+      <section
+        className="py-20 px-6"
+        style={{ backgroundImage: "url('/welding_tubes.jpg')", backgroundSize: "cover", backgroundPosition: "center" }}
+      >
+        <div className="max-w-4xl mx-auto bg-slate-950/80 rounded-xl py-12 px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">The Problem</h2>
           <p className="text-slate-400 text-center mb-12 max-w-xl mx-auto">
             Big businesses have HR departments, lawyers, and lobbyists.
@@ -310,8 +315,8 @@ export default function LandingPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 px-6 text-center">
-        <div className="max-w-2xl mx-auto">
+      <section className="py-20 px-6 text-center bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/johns_pic.jpg')" }}>
+        <div className="max-w-2xl mx-auto bg-slate-950/85 rounded-xl py-12 px-6">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Stand UP?</h2>
           <p className="text-slate-400 mb-8">
             Join the movement. First 1,000 members get founding status -
