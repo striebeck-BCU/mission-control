@@ -315,8 +315,8 @@ export default function LandingPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 px-6 text-center bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/torching.jpg')" }}>
-        <div className="max-w-2xl mx-auto bg-slate-950/85 rounded-xl py-12 px-6">
+      <section className="py-20 px-6 text-center bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/crane_in_mill.jpg')" }}>
+        <div className="max-w-2xl mx-auto bg-slate-950/80 rounded-xl py-12 px-6">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Stand UP?</h2>
           <p className="text-slate-400 mb-8">
             Join the movement. First 1,000 members get founding status -
