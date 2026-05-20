@@ -287,8 +287,8 @@ export default function LandingPage() {
       </section>
 
       {/* Benefits */}
-      <section className="py-20 px-6 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/crane_lifting_head.jpg')" }}>
-        <div className="max-w-4xl mx-auto bg-slate-950/80 rounded-xl py-12 px-6">
+      <section className="bg-slate-900 border-y border-slate-800 py-20 px-6">
+        <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">What You Get</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
