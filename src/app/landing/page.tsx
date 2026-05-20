@@ -50,8 +50,11 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero */}
-      <section className="px-6 py-20 text-center">
-        <div className="max-w-3xl mx-auto">
+      <section
+        className="px-6 py-20 text-center bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/landing_bg_blurred.jpg')" }}
+      >
+        <div className="max-w-3xl mx-auto bg-slate-950/70 rounded-xl">
           <div className="inline-block px-4 py-1.5 bg-blue-900/50 border border-blue-700 rounded-full text-sm text-blue-300 mb-6">
             For blue collar workers. By blue collar workers.
           </div>
@@ -59,8 +62,8 @@ export default function LandingPage() {
             Stand Strong.<br />Stand Together.<br /><span className="text-blue-500">Stand UP!</span>
           </h1>
           <p className="text-lg md:text-xl text-slate-400 mb-10 max-w-xl mx-auto">
-            90% of blue collar workers have no one bargaining for them. 
-            BCU gives non-union workers the collective power they deserve.
+            90% of blue collar workers have no one bargaining for them.
+            BCU is working to give non-union workers the collective power they deserve.
           </p>
 
           {/* Email Form */}
@@ -108,7 +111,7 @@ export default function LandingPage() {
           </div>
           <div>
             <div className="text-4xl font-bold text-blue-500">0%</div>
-            <div className="text-slate-400 mt-1">collective bargaining power — until now</div>
+            <div className="text-slate-400 mt-1">collective bargaining power - until now</div>
           </div>
         </div>
       </section>
@@ -118,8 +121,8 @@ export default function LandingPage() {
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">The Problem</h2>
           <p className="text-slate-400 text-center mb-12 max-w-xl mx-auto">
-            Big businesses have HR departments, lawyers, and lobbyists. 
-            Union workers have contracts, benefits, and bargaining power. 
+            Big businesses have HR departments, lawyers, and lobbyists.
+            Union workers have contracts, benefits, and bargaining power.
             What do you have?
           </p>
 
@@ -128,15 +131,14 @@ export default function LandingPage() {
               <div className="text-2xl mb-3">😤</div>
               <h3 className="font-semibold text-lg mb-2">The Pay Gap</h3>
               <p className="text-slate-400 text-sm">
-                Non-union workers earn $1,138/week on average. Union workers earn $1,337. 
-                That's a <span className="text-white font-medium">$10,000+ gap every year</span> — just for not having a contract.
+                Non-union workers earn roughly 15% less than union counterparts — and that gap compounds every single year. The more you earn, the more that gap costs you.
               </p>
             </div>
             <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
               <div className="text-2xl mb-3">🏥</div>
               <h3 className="font-semibold text-lg mb-2">The Benefits Gap</h3>
               <p className="text-slate-400 text-sm">
-                Only 72% of private industry workers have employer-provided retirement plans. 
+                Only 72% of private industry workers have employer-provided retirement plans.
                 Health insurance? Even worse. You're on your own more often than not.
               </p>
             </div>
@@ -144,16 +146,16 @@ export default function LandingPage() {
               <div className="text-2xl mb-3">⚖️</div>
               <h3 className="font-semibold text-lg mb-2">The Power Gap</h3>
               <p className="text-slate-400 text-sm">
-                When you're by yourself, your employer sets the terms. 
-                Rent, groceries, healthcare — costs keep rising. Your bargaining power? Zero.
+                When you're by yourself, your employer sets the terms.
+                Rent, groceries, healthcare - costs keep rising. Your bargaining power? Zero.
               </p>
             </div>
             <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
               <div className="text-2xl mb-3">🔒</div>
               <h3 className="font-semibold text-lg mb-2">The Information Gap</h3>
               <p className="text-slate-400 text-sm">
-                Labor laws vary by state and trade. Safety regulations change. 
-                Know your rights? Most workers don't — and employers aren't in a rush to help you learn.
+                Labor laws vary by state and trade. Safety regulations change.
+                Know your rights? Most workers don't - and employers aren't in a rush to help you learn.
               </p>
             </div>
           </div>
@@ -165,7 +167,7 @@ export default function LandingPage() {
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">The Solution</h2>
           <p className="text-slate-400 mb-12 max-w-xl mx-auto">
-            BCU is a new kind of workers' organization — no union dues, no union politics. 
+            BCU is a new kind of workers' organization - no union dues, no union politics.
             Just collective power, shared resources, and deals that actually move the needle.
           </p>
 
@@ -174,15 +176,15 @@ export default function LandingPage() {
               <div className="text-5xl mb-4">🤝</div>
               <h3 className="font-bold text-lg mb-2">Collective Purchasing</h3>
               <p className="text-slate-400 text-sm">
-                Pool our numbers. Group health insurance, equipment discounts, 
-                supplier deals — the kind of rates only big companies get.
+                Pool our numbers. Group health insurance, equipment discounts,
+                supplier deals - the kind of rates only big companies get.
               </p>
             </div>
             <div>
               <div className="text-5xl mb-4">📚</div>
               <h3 className="font-bold text-lg mb-2">Shared Knowledge</h3>
               <p className="text-slate-400 text-sm">
-                Labor laws, safety standards, wage research, contractor reviews. 
+                Labor laws, safety standards, wage research, contractor reviews.
                 Real intel from real workers in your trade and state.
               </p>
             </div>
@@ -190,7 +192,7 @@ export default function LandingPage() {
               <div className="text-5xl mb-4">💪</div>
               <h3 className="font-bold text-lg mb-2">Bargaining Power</h3>
               <p className="text-slate-400 text-sm">
-                Together, we have leverage. Better contracts, better prices, 
+                Together, we have leverage. Better contracts, better prices,
                 better treatment. Alone, you have none. Together, we have it all.
               </p>
             </div>
@@ -198,16 +200,59 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* How It Works */}
+      {/* For Shops & Contractors */}
       <section className="py-20 px-6">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">For the Small Business Owner</h2>
+          <p className="text-slate-400 text-center mb-12 max-w-xl mx-auto">
+            Running a crew? Whether it's a few or a few dozen, you're still too small to get the rates and deals the big companies lock up. BCU changes that.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
+              <div className="text-2xl mb-3">🏥</div>
+              <h3 className="font-semibold text-lg mb-2">Group Health Plans</h3>
+              <p className="text-slate-400 text-sm">
+                Health, dental, vision — at rates only national chains get. Cover your workers without bankrupting the shop.
+              </p>
+            </div>
+            <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
+              <div className="text-2xl mb-3">🔧</div>
+              <h3 className="font-semibold text-lg mb-2">Equipment & Supply Deals</h3>
+              <p className="text-slate-400 text-sm">
+                Tools, vehicles, PPE, shop materials — pooled buying means wholesale pricing on things you're already buying anyway.
+              </p>
+            </div>
+            <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
+              <div className="text-2xl mb-3">📋</div>
+              <h3 className="font-semibold text-lg mb-2">Employment Law Basics</h3>
+              <p className="text-slate-400 text-sm">
+                Know your state's labor laws, contractor classification rules, and safety regs. No lawyer required.
+              </p>
+            </div>
+            <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
+              <div className="text-2xl mb-3">🤝</div>
+              <h3 className="font-semibold text-lg mb-2">Referral Network</h3>
+              <p className="text-slate-400 text-sm">
+                When a job's too big or too small, BCU connects you with trusted tradespeople. Fill gaps, build reputation, grow.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section
+        className="py-20 px-6 text-center"
+        style={{ backgroundImage: "url('/sunset.jpg')", backgroundSize: "cover", backgroundPosition: "center" }}
+      >
+        <div className="max-w-4xl mx-auto text-center bg-slate-950/80 rounded-xl py-10 px-6">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">How It Works</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="w-12 h-12 bg-blue-900/50 border border-blue-700 rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div>
               <h3 className="font-bold text-lg mb-2">Join for Free</h3>
               <p className="text-slate-400 text-sm">
-                Sign up with your email. No credit card, no dues, no commitment. 
+                Sign up with your email. No credit card, no dues, no commitment.
                 Just your name and your trade.
               </p>
             </div>
@@ -215,7 +260,7 @@ export default function LandingPage() {
               <div className="w-12 h-12 bg-blue-900/50 border border-blue-700 rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div>
               <h3 className="font-bold text-lg mb-2">We Pool Together</h3>
               <p className="text-slate-400 text-sm">
-                BCU aggregates workers by trade, location, and needs. 
+                BCU aggregates workers by trade, location, and needs.
                 The bigger the pool, the better the deals we can negotiate.
               </p>
             </div>
@@ -223,7 +268,7 @@ export default function LandingPage() {
               <div className="w-12 h-12 bg-blue-900/50 border border-blue-700 rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div>
               <h3 className="font-bold text-lg mb-2">We All Win</h3>
               <p className="text-slate-400 text-sm">
-                Lower costs, better benefits, stronger voice. 
+                Lower costs, better benefits, stronger voice.
                 Every member gets more than they put in. That's the deal.
               </p>
             </div>
@@ -232,14 +277,17 @@ export default function LandingPage() {
       </section>
 
       {/* Benefits */}
-      <section className="bg-slate-900 border-y border-slate-800 py-20 px-6">
+      <section
+        className="bg-slate-900 border-y border-slate-800 py-20 px-6"
+        style={{ backgroundImage: "url('/crane_in_mill.jpg')", backgroundSize: "cover", backgroundPosition: "center" }}
+      >
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">What You Get</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
               { icon: "🏥", title: "Health & Wellness Deals", desc: "Group health plans at rates only big companies get. Dental, vision, mental health." },
-              { icon: "💰", title: "Equipment & Supply Discounts", desc: "Tools, gear, vehicles, workwear — at member-only prices." },
-              { icon: "🏠", title: "Insurance Group Rates", desc: "Life, disability, liability — pooled buying power means lower premiums." },
+              { icon: "💰", title: "Equipment & Supply Discounts", desc: "Tools, gear, vehicles, workwear - at member-only prices." },
+              { icon: "🏠", title: "Insurance Group Rates", desc: "Life, disability, liability - pooled buying power means lower premiums." },
               { icon: "⚖️", title: "Legal Resources", desc: "Know your rights. Get help understanding labor laws in your state and trade." },
               { icon: "🔧", title: "Contractor Network", desc: "Find trusted tradespeople. Leave honest reviews. Build reputation." },
               { icon: "📢", title: "Workers' Voice", desc: "Collective advocacy. When BCU speaks, employers listen." },
@@ -261,7 +309,7 @@ export default function LandingPage() {
         <div className="max-w-2xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Stand UP?</h2>
           <p className="text-slate-400 mb-8">
-            Join the movement. First 1,000 members get founding status — 
+            Join the movement. First 1,000 members get founding status -
             locked-in pricing and first access to BCU benefits.
           </p>
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
