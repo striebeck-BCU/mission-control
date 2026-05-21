@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Mission Control - Custom Tools Board",
-  description: "Build and manage your custom tools with this dynamic task board",
+  title: "Blue Collar Up",
+  description: "Worker-led collective power for blue collar tradespeople.",
 };
 
 export default function RootLayout({
