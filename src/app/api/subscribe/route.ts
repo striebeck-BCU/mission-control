@@ -1,7 +1,25 @@
 import { NextRequest, NextResponse } from "next/server";
-import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const RESEND_KEY = process.env.RESEND_API_KEY;
+const RESEND_AUDIENCE = process.env.RESEND_AUDIENCE_ID;
+const RESEND_FROM = process.env.RESEND_FROM_EMAIL;
+const RESEND_FROM_NAME = process.env.RESEND_FROM_NAME || "BCU Team";
+
+async function resendApi(endpoint: string, body: unknown) {
+  const res = await fetch(`https://api.resend.com${endpoint}`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${RESEND_KEY}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`Resend API error ${res.status}: ${text}`);
+  }
+  return res.json();
+}
 
 export async function POST(req: NextRequest) {
   try {
@@ -11,28 +29,23 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Valid email required" }, { status: 400 });
     }
 
-    // 1. Add to Resend audience — minimal fields only
-    if (process.env.RESEND_API_KEY && process.env.RESEND_AUDIENCE_ID) {
+    if (RESEND_KEY && RESEND_AUDIENCE) {
       try {
-        await resend.contacts.create({
+        await resendApi("/contacts", {
           email,
-          audienceId: process.env.RESEND_AUDIENCE_ID,
+          audienceId: RESEND_AUDIENCE,
         });
-      } catch (contactErr) {
-        console.error("Contact create failed:", contactErr);
-        // Continue anyway — signup should still succeed
+      } catch (e) {
+        console.error("Contact create failed:", e);
       }
-    }
 
-    // 2. Send welcome email — don't fail signup if this errors
-    if (process.env.RESEND_API_KEY && process.env.RESEND_FROM_EMAIL) {
-      try {
-        const fromName = process.env.RESEND_FROM_NAME || "BCU Team";
-        await resend.emails.send({
-          from: `${fromName} <${process.env.RESEND_FROM_EMAIL}>`,
-          to: email,
-          subject: "You're in. Now let's get to work.",
-          text: `Welcome to Blue Collar Up.
+      if (RESEND_FROM) {
+        try {
+          await resendApi("/emails", {
+            from: `${RESEND_FROM_NAME} <${RESEND_FROM}>`,
+            to: email,
+            subject: "You're in. Now let's get to work.",
+            text: `Welcome to Blue Collar Up.
 
 You're now part of something real — a movement built by workers, for workers. No union dues. No politics. Just collective power and deals that actually move the needle.
 
@@ -49,10 +62,13 @@ In the meantime — share with a coworker. Every member who joins before launch 
 Stand up. We've got your back.
 
 — The BCU Team`,
-        });
-      } catch (emailErr) {
-        console.error("Welcome email failed:", emailErr);
+          });
+        } catch (e) {
+          console.error("Welcome email failed:", e);
+        }
       }
+    } else {
+      console.log("No RESEND_API_KEY — signup stored locally (dev mode)");
     }
 
     return NextResponse.json({ success: true, message: "You're on the list." });
