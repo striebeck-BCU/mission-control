@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "rm -rf .next && next build",
+    "build": "npm run clean && next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "clean": "rm -rf .next node_modules/.cache open-next",
+    "deploy": "npm run build && wrangler pages deploy .open-next/assets"
   },
   "dependencies": {
     "next": "16.2.6",

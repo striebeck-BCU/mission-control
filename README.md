@@ -2,6 +2,8 @@
 
 A dynamic task board for building and managing custom tools.
 
+<!-- BCU build trigger -->
+
 ## Features
 - Drag-and-drop task management
 - Custom tool creation with metadata
