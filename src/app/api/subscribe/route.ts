@@ -5,8 +5,8 @@ const RESEND_AUDIENCE = process.env.RESEND_AUDIENCE_ID;
 const RESEND_FROM = process.env.RESEND_FROM_EMAIL;
 const RESEND_FROM_NAME = process.env.RESEND_FROM_NAME || "BCU Team";
 
-async function sendResendRequest(endpoint: string, body: Record<string, unknown>) {
-  const res = await fetch(`https://api.resend.com${endpoint}`, {
+async function resendPost(path: string, body: Record<string, unknown>) {
+  const res = await fetch(`https://api.resend.com${path}`, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${RESEND_KEY}`,
@@ -29,25 +29,19 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Valid email required" }, { status: 400 });
     }
 
-    // Add to Resend audience (failures are non-fatal)
-    if (RESEND_KEY && RESEND_AUDIENCE) {
+    if (RESEND_KEY && RESEND_AUDIENCE && RESEND_FROM) {
       try {
-        await sendResendRequest("/contacts", {
-          email,
-          audienceId: RESEND_AUDIENCE,
-        });
-      } catch (err) {
-        console.error("Contact create error:", err);
+        await resendPost("/contacts", { email, audienceId: RESEND_AUDIENCE });
+      } catch (e) {
+        console.error("Contact error:", e);
       }
 
-      // Send welcome email (failures are non-fatal)
-      if (RESEND_FROM) {
-        try {
-          await sendResendRequest("/emails", {
-            from: `${RESEND_FROM_NAME} <${RESEND_FROM}>`,
-            to: email,
-            subject: "You're in. Now let's get to work.",
-            text: `Welcome to Blue Collar Up.
+      try {
+        await resendPost("/emails", {
+          from: `${RESEND_FROM_NAME} <${RESEND_FROM}>`,
+          to: email,
+          subject: "You're in. Now let's get to work.",
+          text: `Welcome to Blue Collar Up.
 
 You're now part of something real — a movement built by workers, for workers. No union dues. No politics. Just collective power and deals that actually move the needle.
 
@@ -64,13 +58,12 @@ In the meantime — share with a coworker. Every member who joins before launch 
 Stand up. We've got your back.
 
 — The BCU Team`,
-          });
-        } catch (err) {
-          console.error("Welcome email error:", err);
-        }
+        });
+      } catch (e) {
+        console.error("Email error:", e);
       }
     } else {
-      console.log("No RESEND_API_KEY — signup running in dev mode");
+      console.log("Dev mode — no RESEND_KEY set, skipping email");
     }
 
     return NextResponse.json({ success: true, message: "You're on the list." });
