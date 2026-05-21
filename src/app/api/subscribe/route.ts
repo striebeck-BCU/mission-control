@@ -1,5 +1,26 @@
 import { NextRequest, NextResponse } from "next/server";
 
+const RESEND_KEY = process.env.RESEND_API_KEY;
+const RESEND_AUDIENCE = process.env.RESEND_AUDIENCE_ID;
+const RESEND_FROM = process.env.RESEND_FROM_EMAIL;
+const RESEND_FROM_NAME = process.env.RESEND_FROM_NAME || "BCU Team";
+
+async function sendResendRequest(endpoint: string, body: Record<string, unknown>) {
+  const res = await fetch(`https://api.resend.com${endpoint}`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${RESEND_KEY}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`Resend ${res.status}: ${text}`);
+  }
+  return res.json();
+}
+
 export async function POST(req: NextRequest) {
   try {
     const { email } = await req.json();
@@ -8,7 +29,49 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Valid email required" }, { status: 400 });
     }
 
-    console.log("Signup received for:", email);
+    // Add to Resend audience (failures are non-fatal)
+    if (RESEND_KEY && RESEND_AUDIENCE) {
+      try {
+        await sendResendRequest("/contacts", {
+          email,
+          audienceId: RESEND_AUDIENCE,
+        });
+      } catch (err) {
+        console.error("Contact create error:", err);
+      }
+
+      // Send welcome email (failures are non-fatal)
+      if (RESEND_FROM) {
+        try {
+          await sendResendRequest("/emails", {
+            from: `${RESEND_FROM_NAME} <${RESEND_FROM}>`,
+            to: email,
+            subject: "You're in. Now let's get to work.",
+            text: `Welcome to Blue Collar Up.
+
+You're now part of something real — a movement built by workers, for workers. No union dues. No politics. Just collective power and deals that actually move the needle.
+
+Here's what happens next:
+
+- We're building the member app and vendor partnerships as fast as we can
+- Founding member pricing is locked for the first 1,000 members — $100/month, locked in forever
+- Standard membership will be $20/month when we launch
+
+We'll send you updates as we get closer to launch. No spam. No sales pitches. Just straight progress reports on what BCU is building for you.
+
+In the meantime — share with a coworker. Every member who joins before launch strengthens the whole community.
+
+Stand up. We've got your back.
+
+— The BCU Team`,
+          });
+        } catch (err) {
+          console.error("Welcome email error:", err);
+        }
+      }
+    } else {
+      console.log("No RESEND_API_KEY — signup running in dev mode");
+    }
 
     return NextResponse.json({ success: true, message: "You're on the list." });
   } catch (err) {
