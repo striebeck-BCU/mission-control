@@ -47,16 +47,16 @@ You're now part of something real — a movement built by workers, for workers. 
 
 *If you're tired of slow wages growth & sub-par per diem
 * limited health and financial options
-* Being treated like you're expendable
+* being treated like you're expendable
 
 Join us - band together and make a difference.
 
-The politicians aren't going to save the working class. Only going to tax us more. It's up to US to save ourselves!
+The politicians aren't going to save the working class. They're only going to tax us more. It's up to US to save ourselves!
 
 Here's what happens next:
 
 - We're building the member app and vendor partnerships as fast as we can.
-- Founding member pricing is locked for the first 1,000 members — $100/month, locked in forever with a revenue sharing.
+- Founding member pricing is locked for the first 1,000 members — $100/month, locked in forever, with referral commissions on members you bring in.
 - Standard membership will be $20/month when we launch
 
 We'll send you updates as we get closer to launch. No spam. No sales pitches. Just straight progress reports on what BCU is building for you.
