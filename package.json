@@ -7,7 +7,7 @@
     "build": "npm run clean && next build",
     "start": "next start",
     "lint": "eslint",
-    "clean": "rm -rf .next node_modules/.cache open-next",
+    "clean": "node -e \"const fs=require('fs'); ['.next','node_modules/.cache','open-next'].forEach((p)=>fs.rmSync(p,{recursive:true,force:true}))\"",
     "deploy": "npm run build && wrangler pages deploy .open-next/assets"
   },
   "dependencies": {
