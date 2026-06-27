@@ -63,7 +63,7 @@ export async function POST(req: NextRequest) {
           subject: "You're in. Now let's get to work.",
           text: `Welcome to Blue Collar Up.
 
-You're now part of something real â€” a movement built by workers, for workers. No union dues. No politics. Just collective power and deals that actually move the needle. The middle class BUILDS this nation and it's time WE get some representation.
+You're now part of something real — a movement built by workers, for workers. No union dues. No politics. Just collective power and deals that actually move the needle. The middle class BUILDS this nation and it's time WE get some representation.
 
 *If you're tired of slow wages growth & sub-par per diem
 * limited health and financial options
@@ -76,16 +76,16 @@ The politicians aren't going to save the working class. They're only going to ta
 Here's what happens next:
 
 - We're building the member app and vendor partnerships as fast as we can.
-- Founding member pricing is locked for the first 1,000 members â€” $100/month, locked in forever, with referral commissions on members you bring in.
+- Founding member pricing is locked for the first 1,000 members — $100/month, locked in forever, with referral commissions on members you bring in.
 - Standard membership will be $20/month when we launch
 
 We'll send you updates as we get closer to launch. No spam. No sales pitches. Just straight progress reports on what BCU is building for you.
 
-In the meantime â€” share with a coworker. Every member who joins before launch strengthens the whole community.
+In the meantime — share with a coworker. Every member who joins before launch strengthens the whole community.
 
 Stand up. We've got your back.
 
-â€” The BCU Team`,
+— The BCU Team`,
       });
     } catch (e) {
       logSubscribeError("Email error:", e);
